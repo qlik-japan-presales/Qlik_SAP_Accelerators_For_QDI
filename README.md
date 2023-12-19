@@ -11,7 +11,7 @@ Qlik SAP Accelerator Packages include the following 4 scenarios:
 ![sample screenshot](./Documentations/images/top2.png)
 
 For more information on the visualizations and data marts to be deployed by this package, please refer to the following documents
-* SAP Accelerator Packages Overview ([English](./Documentations/SAP Accelerator Packages Overview_EN.pdf) | [Japanese](./Documentations/SAP Accelerator Packages Overview_日本語.pdf))
+* SAP Accelerator Packages Overview ([English](./Documentations/SAP_Accelerator_Packages_Overview_EN.pdf) | [Japanese](./Documentations/SAP_Accelerator_Packages_Overview_日本語.pdf))
 
 ## Prerequisites
 * Build upon Qlik Replicate, Qlik Compose and Qlik Sense
@@ -23,8 +23,8 @@ For more information on the visualizations and data marts to be deployed by this
 ## Setup
 Follow the setup procedures contained in the POC Guide below:
 
-* SAP Accelerator Packages POC Guide ([English](./Documentations/SAP Accelerator Package POC Guide_EN_v3.3.pdf) | [Japanese](./Documentations/SAP Accelerator Package POC Guide_日本語_v3.3.pdf))
-* Data Source List ([English](./Documentations/Data Source List_EN_v3.3.xlsx) | [Japanese](./Documentations/Data Source List_日本語_v3.3.xlsx))
+* SAP Accelerator Packages POC Guide ([English](./Documentations/SAP_Accelerator_Packages_POC_Guide_EN_v3.3.pdf) | [Japanese](./Documentations/SAP_Accelerator_Packages_POC_Guide_日本語_v3.3.pdf))
+* Data Source List ([English](./Documentations/Data_Source_List_EN_v3.3.xlsx) | [Japanese](./Documentations/Data_Source_List_日本語_v3.3.xlsx))
 
 ## Author
 **Masaki Hamano**

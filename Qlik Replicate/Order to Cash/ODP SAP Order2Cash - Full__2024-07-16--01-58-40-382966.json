@@ -1,11 +1,11 @@
 {
-	"name":	"ODP SAP Finance - Delta S4 HANA__2023-12-15--08-49-39-784347",
+	"name":	"ODP SAP Order2Cash - Full__2024-07-16--01-58-40-382966",
 	"cmd.replication_definition":	{
 		"tasks":	[{
 				"task":	{
-					"name":	"ODP SAP Finance - Delta S4 HANA",
+					"name":	"ODP SAP Order2Cash - Full",
 					"source_name":	"SAP ODP Extactor",
-					"target_names":	["SQL Server TGT FI EDW"]
+					"target_names":	["SQL Server TGT O2C EDW"]
 				},
 				"source":	{
 					"rep_source":	{
@@ -15,46 +15,46 @@
 					"source_tables":	{
 						"name":	"SAP ODP Extactor",
 						"explicit_included_tables":	[{
-								"name":	"0COSTCENTER_TEXT - Cost Center"
+								"name":	"0SALES_GRP_TEXT - Sales Group"
 							}, {
-								"name":	"0COSTELMNT_ATTR - Cost element"
+								"name":	"0DISTR_CHAN_TEXT - Distribution Channel"
 							}, {
-								"name":	"0CUSTOMER_ATTR - Customer Number"
+								"name":	"0EMPLOYEE_ATTR - Employee"
 							}, {
-								"name":	"0CUSTOMER_TEXT - Customer number"
+								"name":	"0MATL_CAT_TEXT - Material Type"
 							}, {
-								"name":	"0FI_ACDOCA_20 - Unified Journal Entry (with Currency type)"
+								"name":	"0MATL_GROUP_TEXT - Material Group"
 							}, {
-								"name":	"0FI_AP_4 - Vendors: Line Items with Delta Extrcation"
+								"name":	"0MATL_TYPE_TEXT - Material Type"
 							}, {
-								"name":	"0FI_AR_4 - Customers: Line Items with Delta Extraction"
+								"name":	"0RECIPCNTRY_TEXT - Destination country"
 							}, {
-								"name":	"0FI_GL_14 - General Ledger (New): Line Items Leading Ledger"
+								"name":	"0SALES_OFF_TEXT - Sales Office"
 							}, {
-								"name":	"0GL_ACCOUNT_ATTR - G/L Account Number"
+								"name":	"0SALESORG_TEXT - Sales Organization"
 							}, {
-								"name":	"0PROFIT_CTR_ATTR - Profit center"
+								"name":	"ZTCURR_ATTR - Currency Extractor"
 							}, {
-								"name":	"0PROFIT_CTR_TEXT - Profit Center"
+								"name":	"0DIVISION_TEXT - Division"
 							}, {
-								"name":	"0VENDOR_ATTR - Vendor Number"
+								"name":	"0AC_DOC_TYP_TEXT - Document Type"
 							}, {
-								"name":	"0VENDOR_TEXT - Vendor Number"
+								"name":	"0GL_ACCOUNT_TEXT - G/L Account Number"
 							}]
 					}
 				},
 				"targets":	[{
 						"rep_target":	{
-							"target_name":	"SQL Server TGT FI EDW",
+							"target_name":	"SQL Server TGT O2C EDW",
 							"target_state":	"DISABLED",
-							"database_name":	"SQL Server TGT FI EDW"
+							"database_name":	"SQL Server TGT O2C EDW"
 						}
 					}],
 				"manipulations":	[{
-						"name":	".0COSTCENTER_TEXT - Cost Center",
+						"name":	".0AC_DOC_TYP_TEXT - Document Type",
 						"table_manipulation":	{
-							"name":	"0COSTCENTER_TEXT - Cost Center",
-							"new_table_name":	"0COSTCENTER_TEXT",
+							"name":	"0AC_DOC_TYP_TEXT - Document Type",
+							"new_table_name":	"0AC_DOC_TYP_TEXT",
 							"source_table_settings":	{
 								"unload_segments":	{
 									"ranges":	{
@@ -65,10 +65,10 @@
 							}
 						}
 					}, {
-						"name":	".0COSTELMNT_ATTR - Cost element",
+						"name":	".0DISTR_CHAN_TEXT - Distribution Channel",
 						"table_manipulation":	{
-							"name":	"0COSTELMNT_ATTR - Cost element",
-							"new_table_name":	"0COSTELMNT_ATTR",
+							"name":	"0DISTR_CHAN_TEXT - Distribution Channel",
+							"new_table_name":	"0DISTR_CHAN_TEXT",
 							"source_table_settings":	{
 								"unload_segments":	{
 									"ranges":	{
@@ -79,10 +79,10 @@
 							}
 						}
 					}, {
-						"name":	".0CUSTOMER_ATTR - Customer Number",
+						"name":	".0DIVISION_TEXT - Division",
 						"table_manipulation":	{
-							"name":	"0CUSTOMER_ATTR - Customer Number",
-							"new_table_name":	"0CUSTOMER_ATTR",
+							"name":	"0DIVISION_TEXT - Division",
+							"new_table_name":	"0DIVISION_TEXT",
 							"source_table_settings":	{
 								"unload_segments":	{
 									"ranges":	{
@@ -93,10 +93,10 @@
 							}
 						}
 					}, {
-						"name":	".0CUSTOMER_TEXT - Customer number",
+						"name":	".0EMPLOYEE_ATTR - Employee",
 						"table_manipulation":	{
-							"name":	"0CUSTOMER_TEXT - Customer number",
-							"new_table_name":	"0CUSTOMER_TEXT",
+							"name":	"0EMPLOYEE_ATTR - Employee",
+							"new_table_name":	"0EMPLOYEE_ATTR",
 							"source_table_settings":	{
 								"unload_segments":	{
 									"ranges":	{
@@ -107,10 +107,10 @@
 							}
 						}
 					}, {
-						"name":	".0FI_ACDOCA_20 - Unified Journal Entry (with Currency type)",
+						"name":	".0GL_ACCOUNT_TEXT - G/L Account Number",
 						"table_manipulation":	{
-							"name":	"0FI_ACDOCA_20 - Unified Journal Entry (with Currency type)",
-							"new_table_name":	"0FI_ACDOCA_20",
+							"name":	"0GL_ACCOUNT_TEXT - G/L Account Number",
+							"new_table_name":	"0GL_ACCOUNT_TEXT",
 							"source_table_settings":	{
 								"unload_segments":	{
 									"ranges":	{
@@ -121,10 +121,10 @@
 							}
 						}
 					}, {
-						"name":	".0FI_AP_4 - Vendors: Line Items with Delta Extrcation",
+						"name":	".0MATL_CAT_TEXT - Material Type",
 						"table_manipulation":	{
-							"name":	"0FI_AP_4 - Vendors: Line Items with Delta Extrcation",
-							"new_table_name":	"0FI_AP_4",
+							"name":	"0MATL_CAT_TEXT - Material Type",
+							"new_table_name":	"0MATL_CAT_TEXT",
 							"source_table_settings":	{
 								"unload_segments":	{
 									"ranges":	{
@@ -135,10 +135,10 @@
 							}
 						}
 					}, {
-						"name":	".0FI_AR_4 - Customers: Line Items with Delta Extraction",
+						"name":	".0MATL_GROUP_TEXT - Material Group",
 						"table_manipulation":	{
-							"name":	"0FI_AR_4 - Customers: Line Items with Delta Extraction",
-							"new_table_name":	"0FI_AR_4",
+							"name":	"0MATL_GROUP_TEXT - Material Group",
+							"new_table_name":	"0MATL_GROUP_TEXT",
 							"source_table_settings":	{
 								"unload_segments":	{
 									"ranges":	{
@@ -149,10 +149,10 @@
 							}
 						}
 					}, {
-						"name":	".0FI_GL_14 - General Ledger (New): Line Items Leading Ledger",
+						"name":	".0MATL_TYPE_TEXT - Material Type",
 						"table_manipulation":	{
-							"name":	"0FI_GL_14 - General Ledger (New): Line Items Leading Ledger",
-							"new_table_name":	"0FI_GL_14",
+							"name":	"0MATL_TYPE_TEXT - Material Type",
+							"new_table_name":	"0MATL_TYPE_TEXT",
 							"source_table_settings":	{
 								"unload_segments":	{
 									"ranges":	{
@@ -163,10 +163,10 @@
 							}
 						}
 					}, {
-						"name":	".0GL_ACCOUNT_ATTR - G/L Account Number",
+						"name":	".0RECIPCNTRY_TEXT - Destination country",
 						"table_manipulation":	{
-							"name":	"0GL_ACCOUNT_ATTR - G/L Account Number",
-							"new_table_name":	"0GL_ACCOUNT_ATTR",
+							"name":	"0RECIPCNTRY_TEXT - Destination country",
+							"new_table_name":	"0RECIPCNTRY_TEXT",
 							"source_table_settings":	{
 								"unload_segments":	{
 									"ranges":	{
@@ -177,10 +177,10 @@
 							}
 						}
 					}, {
-						"name":	".0PROFIT_CTR_ATTR - Profit center",
+						"name":	".0SALESORG_TEXT - Sales Organization",
 						"table_manipulation":	{
-							"name":	"0PROFIT_CTR_ATTR - Profit center",
-							"new_table_name":	"0PROFIT_CTR_ATTR",
+							"name":	"0SALESORG_TEXT - Sales Organization",
+							"new_table_name":	"0SALESORG_TEXT",
 							"source_table_settings":	{
 								"unload_segments":	{
 									"ranges":	{
@@ -191,10 +191,10 @@
 							}
 						}
 					}, {
-						"name":	".0PROFIT_CTR_TEXT - Profit Center",
+						"name":	".0SALES_GRP_TEXT - Sales Group",
 						"table_manipulation":	{
-							"name":	"0PROFIT_CTR_TEXT - Profit Center",
-							"new_table_name":	"0PROFIT_CTR_TEXT",
+							"name":	"0SALES_GRP_TEXT - Sales Group",
+							"new_table_name":	"0SALES_GRP_TEXT",
 							"source_table_settings":	{
 								"unload_segments":	{
 									"ranges":	{
@@ -205,10 +205,10 @@
 							}
 						}
 					}, {
-						"name":	".0VENDOR_ATTR - Vendor Number",
+						"name":	".0SALES_OFF_TEXT - Sales Office",
 						"table_manipulation":	{
-							"name":	"0VENDOR_ATTR - Vendor Number",
-							"new_table_name":	"0VENDOR_ATTR",
+							"name":	"0SALES_OFF_TEXT - Sales Office",
+							"new_table_name":	"0SALES_OFF_TEXT",
 							"source_table_settings":	{
 								"unload_segments":	{
 									"ranges":	{
@@ -219,10 +219,10 @@
 							}
 						}
 					}, {
-						"name":	".0VENDOR_TEXT - Vendor Number",
+						"name":	".ZTCURR_ATTR - Currency Extractor",
 						"table_manipulation":	{
-							"name":	"0VENDOR_TEXT - Vendor Number",
-							"new_table_name":	"0VENDOR_TEXT",
+							"name":	"ZTCURR_ATTR - Currency Extractor",
+							"new_table_name":	"ZTCURR_ATTR",
 							"source_table_settings":	{
 								"unload_segments":	{
 									"ranges":	{
@@ -237,7 +237,7 @@
 					"source_settings":	{
 					},
 					"target_settings":	{
-						"default_schema":	"fin_landing",
+						"default_schema":	"o2c_landing",
 						"queue_settings":	{
 							"message_shape":	{
 							},
@@ -254,19 +254,20 @@
 					},
 					"common_settings":	{
 						"change_table_settings":	{
+							"handle_ddl":	false,
 							"header_columns_settings":	{
 							}
 						},
 						"audit_table_settings":	{
 						},
-						"save_changes_enabled":	true,
+						"apply_changes_enabled":	false,
 						"dr_settings":	{
 						},
 						"statistics_table_settings":	{
 						},
 						"bidi_table_settings":	{
 						},
-						"task_uuid":	"42a64bc1-09a1-2445-a0a6-0e13784fd994",
+						"task_uuid":	"78f6b947-e69d-4748-aaa3-59a3bd007fa9",
 						"status_table_settings":	{
 						},
 						"suspended_tables_table_settings":	{
@@ -292,43 +293,32 @@
 						}
 					}
 				},
-				"error_behavior":	{
-					"apply_error_behavior":	{
-						"insert_policy":	"ERROR_POLICY_MERGE_MODE"
-					},
-					"table_error_behavior":	{
-					},
-					"data_error_behavior":	{
-					},
-					"recoverable_error_behavior":	{
-					}
-				},
 				"configurations":	[{
-						"name":	".0COSTCENTER_TEXT - Cost Center"
+						"name":	".0AC_DOC_TYP_TEXT - Document Type"
 					}, {
-						"name":	".0COSTELMNT_ATTR - Cost element"
+						"name":	".0DISTR_CHAN_TEXT - Distribution Channel"
 					}, {
-						"name":	".0CUSTOMER_ATTR - Customer Number"
+						"name":	".0DIVISION_TEXT - Division"
 					}, {
-						"name":	".0CUSTOMER_TEXT - Customer number"
+						"name":	".0EMPLOYEE_ATTR - Employee"
 					}, {
-						"name":	".0FI_ACDOCA_20 - Unified Journal Entry (with Currency type)"
+						"name":	".0GL_ACCOUNT_TEXT - G/L Account Number"
 					}, {
-						"name":	".0FI_AP_4 - Vendors: Line Items with Delta Extrcation"
+						"name":	".0MATL_CAT_TEXT - Material Type"
 					}, {
-						"name":	".0FI_AR_4 - Customers: Line Items with Delta Extraction"
+						"name":	".0MATL_GROUP_TEXT - Material Group"
 					}, {
-						"name":	".0FI_GL_14 - General Ledger (New): Line Items Leading Ledger"
+						"name":	".0MATL_TYPE_TEXT - Material Type"
 					}, {
-						"name":	".0GL_ACCOUNT_ATTR - G/L Account Number"
+						"name":	".0RECIPCNTRY_TEXT - Destination country"
 					}, {
-						"name":	".0PROFIT_CTR_ATTR - Profit center"
+						"name":	".0SALESORG_TEXT - Sales Organization"
 					}, {
-						"name":	".0PROFIT_CTR_TEXT - Profit Center"
+						"name":	".0SALES_GRP_TEXT - Sales Group"
 					}, {
-						"name":	".0VENDOR_ATTR - Vendor Number"
+						"name":	".0SALES_OFF_TEXT - Sales Office"
 					}, {
-						"name":	".0VENDOR_TEXT - Vendor Number"
+						"name":	".ZTCURR_ATTR - Currency Extractor"
 					}]
 			}],
 		"databases":	[{
@@ -340,35 +330,35 @@
 					"$type":	"CustomSettings",
 					"endpointsserver":	"Local",
 					"endpointname":	"SAPOdp",
-					"connectioninfo":	"{\"connection_information\":\"\",\"connection_type\":\"TYPE_A\",\"host\":\"vhcals4hcs.dummy.nodomain\",\"instance\":0,\"message_server\":\"\",\"server_group\":\"\",\"r3_system\":\"\",\"message_server_service\":\"\",\"client\":100,\"username\":\"mhamano\",\"password\":\"{ZA4A90F230820D377B6DCF4BA70F1103C080DA32B2BBA31B44}\",\"subscriberType\":\"SAP_BW\",\"subscriberTypeOther\":\"SAP_BW\",\"subscriberName\":\"QLIK_REPLICATE\",\"odpContext\":\"SAPI\",\"deltaExtractionInterval\":5,\"maxPackageSize\":52428800,\"invalidDatePlaceholder\":\"1970-01-01\",\"invalidTimePlaceholder\":\"00:00:00\",\"invalidNumberPlaceholder\":\"0\",\"setInvalidNumber\":false,\"useCurrencyConversion\":false,\"realTime\":false,\"sncMode_spacer\":\"\",\"sncMode\":false,\"sncPartnerName\":\"\",\"sncQOP\":\"sncQOP_level_9\",\"sltAlias\":\"\",\"deltaProcessingSpacer\":\"\",\"deltaProcessingLabel\":\"\",\"deltaProcessingMode\":\"historyData\",\"applyOriginalPK\":false,\"reverseValues\":false,\"useTableKeyFields\":false,\"sncMode_element_spacer\":\"\"}",
+					"connectioninfo":	"{\"connection_information\":\"\",\"connection_type\":\"TYPE_A\",\"host\":\"vhcals4hcs.dummy.nodomain\",\"instance\":0,\"message_server\":\"\",\"server_group\":\"\",\"r3_system\":\"\",\"message_server_service\":\"\",\"client\":100,\"username\":\"mhamano\",\"password\":\"{ZA4A90F230074D6D309C0D03A6856BFC56C5C85EBE917B3977}\",\"subscriberType\":\"SAP_BW\",\"subscriberTypeOther\":\"SAP_BW\",\"subscriberName\":\"QLIK_REPLICATE\",\"odpContext\":\"SAPI\",\"deltaExtractionInterval\":5,\"maxPackageSize\":52428800,\"invalidDatePlaceholder\":\"1970-01-01\",\"invalidTimePlaceholder\":\"00:00:00\",\"invalidNumberPlaceholder\":\"0\",\"setInvalidNumber\":false,\"useCurrencyConversion\":false,\"realTime\":false,\"sncMode_spacer\":\"\",\"sncMode\":false,\"sncPartnerName\":\"\",\"sncQOP\":\"sncQOP_level_9\",\"sltAlias\":\"\",\"deltaProcessingSpacer\":\"\",\"deltaProcessingLabel\":\"\",\"deltaProcessingMode\":\"historyData\",\"applyOriginalPK\":false,\"reverseValues\":false,\"useTableKeyFields\":false,\"sncMode_element_spacer\":\"\"}",
 					"registrationinfo":	"{\"name\":\"SAPOdp\",\"title\":\"SAP ODP\",\"server\":\"Local\",\"features\":{\"has_source_unload\":true,\"has_source_cdc\":true,\"supports_start_from_timestamp\":false,\"has_schema\":false,\"implements_get_endpoint_qri\":true},\"connection_info\":{\"groups\":[{\"name\":\"connection_info\",\"ui_name\":\"Connection Information\"},{\"name\":\"CDC\",\"ui_name\":\"Change Data Capture\",\"visible_exp\":\"true\"},{\"name\":\"fetch_data_settings\",\"ui_name\":\"Fetch data settings\",\"visible_exp\":\"false\"},{\"name\":\"snc_settings\",\"ui_name\":\"Security\",\"visible_exp\":\"true\"}],\"items\":[{\"name\":\"connection_information\",\"type\":\"STRING\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Connection Information\",\"visible_exp\":\"false\",\"display_order\":98,\"ui_type\":\"LABEL\",\"ui_layouts\":\"NONE\"},{\"name\":\"connection_type\",\"type\":\"ENUM\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Connection mode\",\"values\":[{\"name\":\"TYPE_A\",\"value\":0,\"ui_name\":\"Custom Application Server\"},{\"name\":\"TYPE_B\",\"value\":1,\"ui_name\":\"Load Balancing Server\"}],\"default_value\":\"TYPE_A\",\"display_order\":95,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"host\",\"type\":\"STRING\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Server name\",\"visible_exp\":\"model.connection_type == 'TYPE_A'\",\"display_order\":94,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"instance\",\"type\":\"NUMBER\",\"min_value\":0,\"max_value\":99,\"ui_name\":\"Instance identifier\",\"default_value\":\"0\",\"visible_exp\":\"model.connection_type == 'TYPE_A'\",\"display_order\":93,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"message_server\",\"type\":\"STRING\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Message Server\",\"visible_exp\":\"model.connection_type == 'TYPE_B'\",\"display_order\":85,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"server_group\",\"type\":\"STRING\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Application servers group name\",\"visible_exp\":\"model.connection_type == 'TYPE_B'\",\"display_order\":84,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"r3_system\",\"type\":\"STRING\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"SAP system name\",\"visible_exp\":\"model.connection_type == 'TYPE_B'\",\"display_order\":83,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"message_server_service\",\"type\":\"STRING\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Message server service\",\"visible_exp\":\"model.connection_type == 'TYPE_B'\",\"display_order\":82,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"client\",\"type\":\"NUMBER\",\"min_value\":0,\"max_value\":999,\"ui_name\":\"Client identifier\",\"default_value\":\"800\",\"display_order\":82,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"username\",\"type\":\"STRING\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Username\",\"display_order\":81,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"password\",\"type\":\"STRING\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Password\",\"encrypted_using\":\"username\",\"display_order\":80,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"subscriberType\",\"type\":\"ENUM\",\"level\":\"ADVANCED\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Subscriber type\",\"values\":[{\"name\":\"SAP_BW\",\"value\":1,\"ui_name\":\"SAP NetWeaver Business Warehouse\"},{\"name\":\"RODPS_REPL_TEST\",\"value\":2,\"ui_name\":\"RODPS_REPL_TEST\"},{\"name\":\"OTHER\",\"value\":3,\"ui_name\":\"Other\"}],\"default_value\":\"SAP_BW\",\"display_order\":120,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"subscriberTypeOther\",\"type\":\"STRING\",\"level\":\"ADVANCED\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Other subscriber type\",\"default_value\":\"SAP_BW\",\"visible_exp\":\"model.subscriberType == 'OTHER'\",\"placeholder\":\"SAP_BW\",\"display_order\":119,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"subscriberName\",\"type\":\"STRING\",\"level\":\"ADVANCED\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Subscriber name\",\"default_value\":\"QLIK_REPLICATE\",\"display_order\":118,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"odpContext\",\"type\":\"ENUM\",\"level\":\"ADVANCED\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"ODP context\",\"values\":[{\"name\":\"ABAP_CDS\",\"value\":1,\"ui_name\":\"ABAP Core Data Services (CDS) Views\"},{\"name\":\"BW\",\"value\":2,\"ui_name\":\"SAP NetWeaver Business Warehouse\"},{\"name\":\"SAPI\",\"value\":3,\"ui_name\":\"SAP DataSources/Extractors\"},{\"name\":\"HANA\",\"value\":4,\"ui_name\":\"SAP HANA Information Views\"},{\"name\":\"SLT\",\"value\":5,\"ui_name\":\"SAP LT Replication (SLT)\"}],\"default_value\":\"ABAP_CDS\",\"display_order\":117,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"deltaExtractionInterval\",\"type\":\"NUMBER\",\"level\":\"ADVANCED\",\"min_value\":0,\"max_value\":10080,\"ui_name\":\"Delta extraction interval\",\"default_value\":\"60\",\"disabled_exp\":\"model.enableDelta == false\",\"unit\":\"Minutes\",\"display_order\":115,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"maxPackageSize\",\"type\":\"NUMBER\",\"level\":\"ADVANCED\",\"min_value\":1000000,\"max_value\":100000000,\"ui_name\":\"Max package size\",\"default_value\":\"52428800\",\"unit\":\"Bytes\",\"display_order\":114,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"invalidDatePlaceholder\",\"type\":\"STRING\",\"level\":\"INTERNAL\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Invalid Date Value Placeholder\",\"default_value\":\"1970-01-01\",\"display_order\":0,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"invalidTimePlaceholder\",\"type\":\"STRING\",\"level\":\"INTERNAL\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Invalid Time Value Placeholder\",\"default_value\":\"00:00:00\",\"display_order\":0,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"invalidNumberPlaceholder\",\"type\":\"NUMBER\",\"level\":\"INTERNAL\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Invalid Number Value Placeholder\",\"default_value\":\"0\",\"display_order\":0,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"setInvalidNumber\",\"type\":\"BOOL\",\"level\":\"INTERNAL\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Replace invalid number\",\"default_value\":\"false\",\"display_order\":0,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"useCurrencyConversion\",\"type\":\"BOOL\",\"level\":\"INTERNAL\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Use currency conversion\",\"default_value\":\"false\",\"display_order\":0,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"realTime\",\"type\":\"BOOL\",\"level\":\"INTERNAL\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Realtime delta extraction\",\"default_value\":\"false\",\"display_order\":0,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"sncMode_spacer\",\"type\":\"STRING\",\"min_value\":0,\"max_value\":0,\"ui_name\":\" \",\"display_order\":78,\"ui_type\":\"LABEL\",\"ui_layouts\":\"NONE\"},{\"name\":\"sncMode\",\"type\":\"BOOL\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Activate Secure Network Communication (SNC)\",\"default_value\":\"false\",\"group\":\"snc_settings\",\"display_order\":77,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"sncPartnerName\",\"type\":\"STRING\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"SNC name\",\"group\":\"snc_settings\",\"disabled_exp\":\"model.sncMode == false\",\"placeholder\":\"e.g. p:CN=Test, O=QLIK, C=US, OU=SAPPACK\",\"display_order\":76,\"ui_type\":\"NONE\",\"style_class\":\"marginTop10\",\"ui_layouts\":\"NONE\"},{\"name\":\"sncQOP\",\"type\":\"ENUM\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"SNC quality of protection\",\"values\":[{\"name\":\"sncQOP_level_1\",\"value\":1,\"ui_name\":\"Authentication only\"},{\"name\":\"sncQOP_level_2\",\"value\":2,\"ui_name\":\"Integrity protection\"},{\"name\":\"sncQOP_level_3\",\"value\":3,\"ui_name\":\"Privacy protection\"},{\"name\":\"sncQOP_level_9\",\"value\":9,\"ui_name\":\"Maximum security available\"}],\"default_value\":\"sncQOP_level_9\",\"group\":\"snc_settings\",\"disabled_exp\":\"model.sncMode == false\",\"display_order\":75,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"sltAlias\",\"type\":\"STRING\",\"level\":\"ADVANCED\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"SLT alias\",\"visible_exp\":\"model.odpContext == 'SLT'\",\"placeholder\":\"e.g ODQ\",\"display_order\":116,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"deltaProcessingSpacer\",\"type\":\"STRING\",\"level\":\"ADVANCED\",\"min_value\":0,\"max_value\":0,\"ui_name\":\" \",\"visible_exp\":\"true\",\"display_order\":112,\"ui_type\":\"LABEL\",\"ui_layouts\":\"NONE\"},{\"name\":\"deltaProcessingLabel\",\"type\":\"STRING\",\"level\":\"ADVANCED\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Delta processing\",\"visible_exp\":\"true\",\"info\":\"Choose history data to apply all the changes or current data to apply the most recent status of the data. See Replicate help for more details.\",\"display_order\":111,\"ui_type\":\"LABEL\",\"ui_layouts\":\"BOLD\"},{\"name\":\"deltaProcessingMode\",\"type\":\"ENUM\",\"level\":\"ADVANCED\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Delta processing mode\",\"values\":[{\"name\":\"historyData\",\"value\":1,\"ui_name\":\"History data\"},{\"name\":\"currentData\",\"value\":2,\"ui_name\":\"Current data\"}],\"default_value\":\"historyData\",\"display_order\":110,\"ui_type\":\"NONE\",\"style_class\":\"marginTop10\",\"ui_layouts\":\"NONE\"},{\"name\":\"applyOriginalPK\",\"type\":\"BOOL\",\"level\":\"ADVANCED\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Apply original primary key\",\"default_value\":\"false\",\"visible_exp\":\"model.deltaProcessingMode == 'historyData'\",\"display_order\":109,\"ui_type\":\"NONE\",\"ui_layouts\":\"NONE\"},{\"name\":\"reverseValues\",\"type\":\"BOOL\",\"level\":\"ADVANCED\",\"min_value\":0,\"max_value\":0,\"ui_name\":\"Reverse summable fields\",\"default_value\":\"false\",\"visible_exp\":\"model.deltaProcessingMode == 'historyData'\",\"display_order\":107,\"ui_type\":\"NONE\",\"style_class\":\"marginTop10\",\"ui_layouts\":\"NONE\"}]},\"class_package\":\"com.qlik.sap.endpoints.odp.SapOdpSourceEndpoint\",\"kind\":\"APPLICATION\",\"behaviors\":{\"capture_confirmation_interval_seconds\":1},\"endpoint_version\":\"v1\",\"protocol_version\":1}"
 				},
 				"override_properties":	{
 				}
 			}, {
-				"name":	"SQL Server TGT FI EDW",
+				"name":	"SQL Server TGT O2C EDW",
 				"role":	"TARGET",
 				"is_licensed":	true,
 				"type_id":	"SQL_SERVER_COMPONENT_TYPE",
 				"db_settings":	{
 					"$type":	"SqlserverSettings",
 					"username":	"sa",
-					"password":	"{ZA9F4264557D1A5F641C30F873A4CCFC0C4CD148DCC434ADE2}",
+					"password":	"{ZABF6DDDB38D6790E0BA70DDD798BA743B8CA3988E49E97E69}",
 					"server":	"localhost",
-					"database":	"fin",
+					"database":	"o2c",
 					"useWindowsAuthentication":	false,
-					"safeguardPolicy":	"RELY_ON_SQL_SERVER_REPLICATION_AGENT",
-					"suspendTableWithComputedColumn":	true
+					"safeguardPolicy":	"RELY_ON_SQL_SERVER_REPLICATION_AGENT"
 				},
 				"override_properties":	{
 				}
 			}]
 	},
 	"_version":	{
-		"version":	"2023.11.0.159",
-		"version_major":	2023,
-		"version_minor":	11,
-		"version_revision":	159
+		"version":	"2024.5.0.144",
+		"version_major":	2024,
+		"version_minor":	5,
+		"version_revision":	144,
+		"fips":	0
 	},
-	"description":	"Host name: caltdc-271482845-p2007805000-windows-remote-desktop, Time: 2023-12-15 08:49:39.784347"
+	"description":	"Host name: caltdc-282327573-p2008653629-windows-remote-desktop, Time: 2024-07-16 01:58:40.382966"
 }
